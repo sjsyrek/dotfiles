@@ -1,0 +1,25 @@
+[user]
+	name = Steven Syrek
+	email = steven.syrek@gmail.com
+[alias]
+	last = log -1 HEAD
+	st = status
+	cm = commit
+	alias = config --get-regexp ^alias\\.
+[color]
+	ui = true
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[core]
+	excludesfile = /Users/Steven/.gitignore_global
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
