@@ -38,9 +38,14 @@ alias mvim="open -a MacVim"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin" # Basic setup
-PATH="$PATH:~/.cargo/bin"                           # Rust
+PATH="$PATH:$HOME/.cargo/bin"                       # Rust
 PATH="$PATH:$HOME/.rvm/bin"                         # Ruby
 PATH="/Users/ssyrek/.local/bin:$PATH"
+
+# Node
+export NODE_ENV='development'
+PATH="$HOME/.npm/bin:$PATH"
+PATH="./node_modules/.bin:./bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
@@ -133,3 +138,5 @@ export EDITOR="vim"
 # Path
 
 export PATH
+
+eval $(thefuck --alias)
