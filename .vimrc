@@ -187,6 +187,15 @@ augroup javascript_folding
     au FileType javascript setlocal foldmethod=syntax
 augroup END
 
+" PureScript
+let purescript_indent_if=3
+let purescript_indent_case=5
+let purescript_indent_let=4
+let purescript_indent_where=6
+let purescript_indent_do=3
+let purescript_indent_in=1
+let purescript_indent_dot=v:true
+
 " Haskell commands
 " t + w	           Insert type for toplevel declaration
 " t + q	           Query type of expression under cursor
