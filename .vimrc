@@ -8,8 +8,6 @@
 
 execute pathogen#infect()
 
-set nocompatible                       " Because we don't care about compatibility with vi
-
 set autoindent                         " copy indent from current line when starting a new line
 set autoread                           " auto reload files when they change
 set backspace=indent,eol,start         " better backspacing
@@ -19,6 +17,7 @@ set clipboard=unnamedplus,autoselect   " use the global clipboard
 set cmdheight=1                        " number of screen lines to use for the command-line
 set colorcolumn=114                    " highlight a screen column
 set completeopt=menuone,menu,longest   " use a popup menu to show auto-completions
+set conceallevel=1                     " conceal keywords with special glyphs
 set cursorline                         " highlight the current screen line
 set directory=~/.vim/tmp//             " directory for swp files
 set encoding=utf-8                     " character encoding for use inside vim
@@ -40,6 +39,7 @@ set lazyredraw                         " don't redraw the screen when executing 
 set linebreak                          " wrap long lines for display purposes, even if there's space
 set matchtime=2                        " show matching brackets for 2/10 of a second instead of 5/10
 set modelines=0                        " don't check for set commands
+set nocompatible                       " Because we don't care about compatibility with vi
 set noerrorbells                       " don't make any noise
 set nolist                             " make sure list mode is off
 set nojoinspaces                       " do not insert two spaces after '.', '?', and '!'
@@ -66,9 +66,11 @@ set timeoutlen=2000                    " wait 2 seconds for a mapped key sequenc
 set ttimeoutlen=100                    " wait 1/10 of a second for key codes to complete
 set ttyfast                            " improves smoothnes of redrawing the screen
 set undofile                           " create undo files
-set undodir=~/.vim/backup      " put undo files here
+set undodir=~/.vim/backup              " put undo files here
 set vb t_vb=                           " no visual bells OR whistles
-set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox " ignore these file patterns when expanding wildcards
+set wildignore+=*\\tmp\\*,*.swp,*.swo  " ignore vim temporary files when expanding wildcards
+set wildignore+=**.zip,.git            " ignore these file patterns when expanding wildcards
+set wildignore+=.cabal-sandbox         " ignore cabal-sandbox files when expanding wildcards
 set wildmenu                           " enable tab completion of commands
 set wildmode=longest,list,full         " complete longest common strings, then list alternatives for wildmenu
 set wrap                               " wrap lines that don't fit in the window (for display only)
@@ -98,8 +100,8 @@ set t_Co=256
 color grb256
 
 " Color schemes (select only one)
-" colorscheme solarized
 colorscheme gruvbox
+" colorscheme solarized
 
 " Key mappings
 nnoremap j gj
@@ -144,14 +146,14 @@ else " no gui
 endif
 
 " Haskell tab completion
-let g:haskellmode_completion_ghc = 1
+let g:haskellmode_completion_ghc=1
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 " Nerdtree
 map <Leader>n :NERDTreeToggle<CR>
 
 " Tabularize
-let g:haskell_tabular = 1
+let g:haskell_tabular=1
 
 vmap a= :Tabularize /=<CR>
 vmap a; :Tabularize /::<CR>
@@ -183,3 +185,16 @@ autocmd FocusLost * :wa " automatically save all buffers if vim loses focus
 " \ + n	           Open file explorer
 " \ + c + Space	   Toggle comment of text under cursor
 " \ + c + s	       Toggle “sexy” comment of text
+
+" vim-javascript
+
+let g:javascript_conceal_function="ƒ"
+let g:javascript_conceal_null="ø"
+let g:javascript_plugin_flow=1
+let g:javascript_plugin_jsdoc=1
+let g:javascript_plugin_ngdoc=1
+
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
