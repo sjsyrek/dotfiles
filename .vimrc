@@ -173,6 +173,20 @@ let g:slime_python_ipython=1
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown " Because vim doesn't understand Markdown
 autocmd FocusLost * :wa " automatically save all buffers if vim loses focus
 
+" JavaScript
+let g:javascript_conceal_function="ƒ"
+let g:javascript_conceal_null="ø"
+let g:javascript_plugin_flow=1
+let g:javascript_plugin_jsdoc=1
+let g:javascript_plugin_ngdoc=1
+
+let g:jsx_ext_required = 0 " JSX syntax highlighting for all .js files
+
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
+
 " Haskell commands
 " t + w	           Insert type for toplevel declaration
 " t + q	           Query type of expression under cursor
@@ -186,15 +200,3 @@ autocmd FocusLost * :wa " automatically save all buffers if vim loses focus
 " \ + c + Space	   Toggle comment of text under cursor
 " \ + c + s	       Toggle “sexy” comment of text
 
-" vim-javascript
-
-let g:javascript_conceal_function="ƒ"
-let g:javascript_conceal_null="ø"
-let g:javascript_plugin_flow=1
-let g:javascript_plugin_jsdoc=1
-let g:javascript_plugin_ngdoc=1
-
-augroup javascript_folding
-    au!
-    au FileType javascript setlocal foldmethod=syntax
-augroup END
