@@ -1,4 +1,4 @@
-# antigen
+# Antigen
 ANTIGEN_VERSION=2.2.2
 source /usr/local/Cellar/antigen/$ANTIGEN_VERSION/share/antigen/antigen.zsh
 antigen use oh-my-zsh
@@ -17,6 +17,7 @@ GREP_OPTIONS="--color=always"; export GREP_OPTIONS
 # Prevent overwriting of existing files with > output redirection operator
 set noclobber
 
+# General aliases
 alias Ls="ls -aF" # Show all files and distinguishes between files, directories, executables (*) and symlinks (@)
 alias Ps="/bin/ps -ax" # Show all processes from all users including processes not connected to a Terminal session
 alias top="/usr/bin/top -s 5 -o cpu" # Sort processes by CPU usage and update it every 5 seconds
@@ -26,15 +27,24 @@ alias ghc="stack exec -- ghc"
 alias psci="pulp repl"
 alias buc="brew upgrade --cleanup"
 
-# Stack auto-completions
-autoload -U +X compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
-eval "$(stack --bash-completion-script stack)"
+# Git aliases
+alias gits="git status"
+alias gita="git add"
+alias gitc="git commit -m"
+alias gitd="git push"
+alias gitf="git fetch"
+alias gitz="git pull"
+alias gito="git checkout"
 
 # Directory shortcuts
 alias docs="cd ~/Documents"
 alias github="cd ~/Documents/GitHub"
 alias mvim="open -a MacVim"
+
+# Stack auto-completions
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+eval "$(stack --bash-completion-script stack)"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
