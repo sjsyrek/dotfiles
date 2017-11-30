@@ -26,6 +26,7 @@ alias ghci="stack exec -- ghci"
 alias ghc="stack exec -- ghc"
 alias psci="pulp repl"
 alias buc="brew upgrade --cleanup"
+alias flow="nocorrect flow"
 
 # Git aliases
 alias gits="git status"
