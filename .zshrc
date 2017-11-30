@@ -35,6 +35,7 @@ alias gitd="git push"
 alias gitf="git fetch"
 alias gitz="git pull"
 alias gito="git checkout"
+alias gitrao="git remote add origin"
 
 # Directory shortcuts
 alias docs="cd ~/Documents"
