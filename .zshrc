@@ -38,6 +38,11 @@ alias gitz="git pull"
 alias gito="git checkout"
 alias gitrao="git remote add origin"
 
+# yarn aliases
+alias ya="yarn add"
+alias yad="yarn add -d"
+alias yrb="yarn run build"
+
 # Directory shortcuts
 alias docs="cd ~/Documents"
 alias github="cd ~/Documents/GitHub"
