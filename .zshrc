@@ -25,6 +25,7 @@ alias python="python3" # Always use Python 3 instead of Python 2
 alias ghci="stack exec -- ghci"
 alias ghc="stack exec -- ghc"
 alias psci="pulp repl"
+alias psc="psc-package"
 alias buc="brew upgrade --cleanup"
 alias flow="nocorrect flow"
 
