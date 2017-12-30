@@ -28,16 +28,20 @@ alias psci="pulp repl"
 alias psc="psc-package"
 alias buc="brew upgrade --cleanup"
 alias flow="nocorrect flow"
+alias ghci-core="ghci -ddump-simpl -dsuppress-idinfo \
+-dsuppress-coercions -dsuppress-type-applications \
+-dsuppress-uniques -dsuppress-module-prefixes"
 
 # Git aliases
 alias gits="git status"
 alias gita="git add"
-alias gitc="git commit -m"
+alias gitc="git commit"
 alias gitd="git push"
 alias gitf="git fetch"
 alias gitz="git pull"
 alias gito="git checkout"
 alias gitrao="git remote add origin"
+alias gitb="git checkout -b"
 
 # yarn aliases
 alias ya="yarn add"
