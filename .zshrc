@@ -30,7 +30,7 @@ alias buc="brew upgrade --cleanup"
 alias flow="nocorrect flow"
 alias ghci-core="ghci -ddump-simpl -dsuppress-idinfo \
 -dsuppress-coercions -dsuppress-type-applications \
--dsuppress-uniques -dsuppress-module-prefixes"
+-dsuppress-uniques -dsuppress-module-prefixes -dsuppress-ticks"
 
 # Git aliases
 alias gits="git status"
