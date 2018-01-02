@@ -42,6 +42,7 @@ alias gitz="git pull"
 alias gito="git checkout"
 alias gitrao="git remote add origin"
 alias gitb="git checkout -b"
+alias gitl="git log --pretty=format:"[%h] %ae, %ar: %s" --stat"
 
 # yarn aliases
 alias ya="yarn add"
