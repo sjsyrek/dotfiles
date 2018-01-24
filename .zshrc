@@ -33,6 +33,7 @@ alias ghci-core="ghci -ddump-simpl -dsuppress-idinfo \
 -dsuppress-uniques -dsuppress-module-prefixes -dsuppress-ticks"
 
 # Git aliases
+alias get-git-branch-name='git rev-parse --abbrev-ref HEAD'
 alias ggbn="get-git-branch-name"
 alias gits="git status"
 alias gita="git add"
