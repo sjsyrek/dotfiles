@@ -33,21 +33,22 @@ alias ghci-core="ghci -ddump-simpl -dsuppress-idinfo \
 -dsuppress-uniques -dsuppress-module-prefixes -dsuppress-ticks"
 
 # Git aliases
-alias ggbn='get-git-branch-name'
+alias ggbn="get-git-branch-name"
 alias gits="git status"
-alias gitb="git branch"
 alias gita="git add"
 alias gitc="git commit"
+alias gitcm="git commit -m"
 alias gitd="git push"
 alias gitf="git fetch"
 alias gitz="git pull"
 alias gito="git checkout"
 alias gitrao="git remote add origin"
-alias gitcb="git checkout -b"
+alias gitb="git checkout -b"
+alias gitm="git checkout master"
 alias gitl="git log --pretty=format:\"[%h] %ae, %ar: %s\" --stat"
 alias gitu="git fetch origin master && git rebase origin/master"
-alias gorigin='git fetch origin $(ggbn) && git rebase FETCH_HEAD'
-alias gupstream='git fetch upstream master && git rebase FETCH_HEAD'
+alias gorigin="git fetch origin $(ggbn) && git rebase FETCH_HEAD"
+alias gupstream="git fetch upstream master && git rebase FETCH_HEAD"
 
 # yarn aliases
 alias ya="yarn add"
