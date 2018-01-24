@@ -1,5 +1,5 @@
 # Antigen
-ANTIGEN_VERSION=2.2.2
+ANTIGEN_VERSION=2.2.3
 source /usr/local/Cellar/antigen/$ANTIGEN_VERSION/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
