@@ -26,11 +26,17 @@ alias ghci="stack exec -- ghci"
 alias ghc="stack exec -- ghc"
 alias psci="pulp repl"
 alias psc="psc-package"
-alias buc="brew upgrade --cleanup"
+alias buc="brew upgrade && brew cleanup"
 alias flow="nocorrect flow"
+alias emacs="/usr/local/Cellar/emacs/24.x/Emacs.app/Contents/MacOS/Emacs -nw"
 alias ghci-core="ghci -ddump-simpl -dsuppress-idinfo \
 -dsuppress-coercions -dsuppress-type-applications \
 -dsuppress-uniques -dsuppress-module-prefixes -dsuppress-ticks"
+alias cat="bat"
+
+# Dhall aliases
+alias dtj="dhall-to-json --omitNull --pretty <<<"
+alias dty="dhall-to-yaml <<<"
 
 # Git aliases
 alias get-git-branch-name='git rev-parse --abbrev-ref HEAD'
@@ -50,16 +56,23 @@ alias gitl="git log --pretty=format:\"[%h] %ae, %ar: %s\" --stat"
 alias gitu="git fetch origin master && git rebase origin/master"
 alias gorigin="git fetch origin $(ggbn) && git rebase FETCH_HEAD"
 alias gupstream="git fetch upstream master && git rebase FETCH_HEAD"
+alias gitam="git commit --amend --no-edit"
+alias gitall="git add . && git commit --amend --no-edit && git push --force-with-lease"
 
 # yarn aliases
 alias ya="yarn add"
 alias yad="yarn add -d"
 alias yrb="yarn run build"
+alias ys="yarn prettier && yarn test --updateSnapshot --coverage --forceExit && flow"
 
 # Directory shortcuts
 alias docs="cd ~/Documents"
 alias github="cd ~/Documents/GitHub"
 alias mvim="open -a MacVim"
+
+# AWS shortcuts
+alias aws-test="saml2aws login -a testing -p testing"
+alias aws-prod="saml2aws login -a production -p production"
 
 # Stack auto-completions
 autoload -U +X compinit && compinit
@@ -68,18 +81,20 @@ eval "$(stack --bash-completion-script stack)"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin" # Basic setup
-PATH="$PATH:$HOME/.cargo/bin"                       # Rust
-PATH="$PATH:$HOME/.rvm/bin"                         # Ruby
+PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"    # Basic setup
+PATH="$PATH:$HOME/.cargo/bin"                          # Rust
+PATH="$PATH:$HOME/.rvm/bin"                            # Ruby
+PATH="$PATH:/usr/local/texlive/2017/bin/x86_64-darwin" # LaTeX
 PATH="/Users/ssyrek/.local/bin:$PATH"
 
 # Node
-export NODE_ENV='development'
-PATH="$HOME/.npm/bin:$PATH"
-PATH="./node_modules/.bin:./bin:$PATH"
+# export NODE_ENV='development'
+# PATH="$HOME/.npm/bin:$PATH"
+# PATH="./node_modules/.bin:./bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # Path to your oh-my-zsh installation.
@@ -172,5 +187,8 @@ export PATH
 
 eval $(thefuck --alias)
 
-# Blacklane config
-source ~/.dotfiles/.blacklane
+# dockerize any repo and use node
+dapp() {
+  local dir=$(pwd)
+  docker run -it -v $dir:/app node bash
+}
