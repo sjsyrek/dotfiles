@@ -3,9 +3,9 @@ ANTIGEN_VERSION=2.2.3
 source /usr/local/Cellar/antigen/$ANTIGEN_VERSION/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
-  git
-  npm
-  osx
+  # git
+  # npm
+  # osx
   tylerreckart/hyperzsh
 EOBUNDLES
 
@@ -51,6 +51,7 @@ alias gitz="git pull"
 alias gito="git checkout"
 alias gitrao="git remote add origin"
 alias gitb="git checkout -b"
+alias gitbd="git branch -D"
 alias gitm="git checkout master"
 alias gitl="git log --pretty=format:\"[%h] %ae, %ar: %s\" --stat"
 alias gitu="git fetch origin master && git rebase origin/master"
@@ -59,33 +60,37 @@ alias gupstream="git fetch upstream master && git rebase FETCH_HEAD"
 alias gitam="git commit --amend --no-edit"
 alias gitall="git add . && git commit --amend --no-edit && git push --force-with-lease"
 
+# GitHub aliases
+alias pr="gh pr create --title"
+alias prd="gh pr create --draft --title"
+
 # yarn aliases
 alias ya="yarn add"
 alias yad="yarn add -d"
 alias yrb="yarn run build"
-alias ys="yarn prettier && yarn test --updateSnapshot --coverage --forceExit && flow"
 
 # Directory shortcuts
 alias docs="cd ~/Documents"
-alias github="cd ~/Documents/GitHub"
+alias github="cd ~/GitHub"
 alias mvim="open -a MacVim"
+alias cock="cd ~/GitHub/ops-cockpit"
 
 # AWS shortcuts
-alias aws-test="saml2aws login -a testing -p testing"
-alias aws-prod="saml2aws login -a production -p production"
+# alias aws-test="saml2aws login -a testing -p testing"
+# alias aws-prod="saml2aws login -a production -p production"
 
 # Stack auto-completions
-autoload -U +X compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
-eval "$(stack --bash-completion-script stack)"
+# autoload -U +X compinit && compinit
+# autoload -U +X bashcompinit && bashcompinit
+# eval "$(stack --bash-completion-script stack)"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"    # Basic setup
-PATH="$PATH:$HOME/.cargo/bin"                          # Rust
-PATH="$PATH:$HOME/.rvm/bin"                            # Ruby
-PATH="$PATH:/usr/local/texlive/2017/bin/x86_64-darwin" # LaTeX
-PATH="/Users/ssyrek/.local/bin:$PATH"
+# PATH="$PATH:$HOME/.cargo/bin"                          # Rust
+# PATH="$PATH:$HOME/.rvm/bin"                            # Ruby
+# PATH="$PATH:/usr/local/texlive/2017/bin/x86_64-darwin" # LaTeX
+PATH="/Users/stevensyrek/.local/bin:$PATH"
 
 # Node
 # export NODE_ENV='development'
@@ -95,10 +100,10 @@ PATH="/Users/ssyrek/.local/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/ssyrek/.oh-my-zsh"
+export ZSH="/Users/stevensyrek/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -192,3 +197,4 @@ dapp() {
   local dir=$(pwd)
   docker run -it -v $dir:/app node bash
 }
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
